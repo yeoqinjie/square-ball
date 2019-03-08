@@ -43,4 +43,8 @@ class UserManager {
         $user = new User($row['id'], $row['email']);
         return $user;
     }
+
+    public static function unsubscribe($pk) {
+        UserManagerDB::update_one("subscribe", 0, $pk);
+    }
 }
